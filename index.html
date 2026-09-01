@@ -162,7 +162,7 @@
       }
 
       body {
-        font-size: 9.2pt;
+        font-size: 9.15pt;
         line-height: 1.30;
         print-color-adjust: exact;
         -webkit-print-color-adjust: exact;
@@ -216,7 +216,7 @@
 </head>
 <body>
   <div class="toolbar">
-    <button type="button" onclick="window.print()">生成 / 保存 PDF</button>
+    <button id="pdf-btn" type="button" onclick="exportPDF()">生成 / 保存 PDF</button>
   </div>
 
   <main class="page">
@@ -284,14 +284,14 @@
         <h2>教育背景</h2>
         <div class="edu">
           <div class="edu-head">
-            <div class="role">卡耐基梅隆大学 (Carnegie Mellon University)</div>
+            <div class="role">卡耐基梅隆大学（Carnegie Mellon University）</div>
             <div class="date">2019 - 2020</div>
           </div>
           <div>电子与计算机工程，硕士</div>
         </div>
         <div class="edu">
           <div class="edu-head">
-            <div class="role">圣奥拉夫大学 (St. Olaf College)</div>
+            <div class="role">圣奥拉夫大学（St. Olaf College）</div>
             <div class="date">2014 - 2018</div>
           </div>
           <div>数学 + 计算机科学，学士</div>
@@ -301,7 +301,7 @@
       <section>
         <h2>专业技能</h2>
         <dl class="skills small">
-          <dt>语言</dt><dd>Golang, C/C++, Python, JavaScript/TypeScript</dd>
+          <dt>语言</dt><dd>Golang, C/C++, Python, JavaScript/TypeScript, C#</dd>
           <dt>Web</dt><dd>Next.js, React, Vue, Shopify API</dd>
           <dt>云与平台</dt><dd>AWS EC2/S3, Cloudflare Workers/Images</dd>
           <dt>工程能力</dt><dd>微服务、API、服务治理、性能优化、Linux/Unix</dd>
@@ -312,7 +312,20 @@
   </main>
 
   <script>
-    // Browser-native printing keeps text selectable and gives reliable A4 PDF output.
+    const isWeChat = /MicroMessenger/i.test(navigator.userAgent);
+    const pdfButton = document.getElementById('pdf-btn');
+
+    if (isWeChat && pdfButton) {
+      pdfButton.textContent = '查看 PDF';
+    }
+
+    function exportPDF() {
+      if (isWeChat) {
+        window.location.href = './Pang_Tianyu_Resume.pdf';
+        return;
+      }
+      window.print();
+    }
   </script>
 </body>
 </html>
