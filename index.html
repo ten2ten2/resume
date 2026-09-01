@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Pang Tianyu - Backend / Full-stack Engineer Resume" />
+  <title>Pang Tianyu | Resume</title>
+  <style>
+    :root {
+      --ink: #171717;
+      --muted: #666;
+      --line: #d9d9d9;
+      --paper: #fff;
+      --page-bg: #eef1f4;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { margin: 0; padding: 0; }
+
+    body {
+      background: var(--page-bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC",
+                   "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      font-size: 10.3pt;
+      line-height: 1.46;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    .toolbar {
+      width: 210mm;
+      max-width: calc(100% - 24px);
+      margin: 18px auto 10px;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .toolbar button {
+      appearance: none;
+      border: 0;
+      border-radius: 7px;
+      background: #171717;
+      color: #fff;
+      padding: 9px 14px;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .toolbar button:hover { opacity: .86; }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto 24px;
+      padding: 12mm 14mm 11mm;
+      background: var(--paper);
+      box-shadow: 0 8px 30px rgba(0,0,0,.08);
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 14px;
+      align-items: end;
+      padding-bottom: 5.5mm;
+      border-bottom: 1.4px solid var(--ink);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 24pt;
+      line-height: 1.05;
+      letter-spacing: -.25px;
+    }
+
+    .headline {
+      margin-top: 2.2mm;
+      color: #333;
+      font-size: 10.8pt;
+      font-weight: 600;
+    }
+
+    .contact {
+      text-align: right;
+      font-size: 9.4pt;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .contact a { color: inherit; text-decoration: none; }
+
+    section { margin-top: 5.2mm; }
+
+    h2 {
+      margin: 0 0 2.2mm;
+      font-size: 11.6pt;
+      line-height: 1.2;
+      letter-spacing: .04em;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 1.2mm;
+    }
+
+    p { margin: 0; }
+
+    .summary { color: #303030; }
+
+    .job, .edu { break-inside: avoid; page-break-inside: avoid; }
+    .job + .job, .edu + .edu { margin-top: 3.5mm; }
+
+    .job-head, .edu-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: baseline;
+    }
+
+    .role { font-weight: 700; font-size: 10.8pt; }
+    .date { color: var(--muted); font-size: 9.4pt; white-space: nowrap; }
+    .org { margin-top: .5mm; font-weight: 600; color: #3d3d3d; }
+
+    ul {
+      margin: 1.3mm 0 0;
+      padding-left: 4.6mm;
+    }
+
+    li { margin: .65mm 0; padding-left: .4mm; }
+
+    .project-label { font-weight: 700; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.16fr .84fr;
+      gap: 8mm;
+      align-items: start;
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: 27mm 1fr;
+      row-gap: 1mm;
+      column-gap: 2mm;
+    }
+
+    .skills dt { font-weight: 700; }
+    .skills dd { margin: 0; }
+
+    .small { font-size: 9.5pt; }
+
+    @media (max-width: 820px) {
+      body { background: #fff; }
+      .toolbar { width: auto; margin: 12px 16px 8px; }
+      .page {
+        width: 100%;
+        min-height: auto;
+        margin: 0;
+        padding: 24px 20px 36px;
+        box-shadow: none;
+      }
+      header, .job-head, .edu-head { grid-template-columns: 1fr; gap: 3px; }
+      .contact { text-align: left; }
+      .two-col { grid-template-columns: 1fr; gap: 0; }
+    }
+
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    @media print {
+      html, body {
+        width: 210mm;
+        height: 297mm;
+        background: #fff;
+      }
+
+      body {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      .toolbar { display: none !important; }
+
+      .page {
+        width: 210mm;
+        height: 297mm;
+        min-height: 297mm;
+        margin: 0;
+        padding: 12mm 14mm 11mm;
+        box-shadow: none;
+        overflow: hidden;
+      }
+
+      a { color: inherit; text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <button type="button" onclick="window.print()">生成 / 保存 PDF</button>
+  </div>
+
+  <main class="page">
+    <header>
+      <div>
+        <h1>Pang Tianyu</h1>
+        <div class="headline">Backend / Full-stack Engineer · Golang · Distributed Systems</div>
+      </div>
+      <div class="contact">
+        <a href="mailto:lightning007zz@gmail.com">lightning007zz@gmail.com</a>
+      </div>
+    </header>
+
+    <section>
+      <h2>个人简介</h2>
+      <p class="summary">
+        CMU 电子与计算机工程硕士，3+ 年滴滴地图核心后端研发经验。主要使用 Golang/C++，具备微服务架构、
+        稳定性治理、服务重构和性能优化经验；同时具备 Web 产品独立开发、云端部署及行业软件插件开发经验。
+      </p>
+    </section>
+
+    <section>
+      <h2>工作经历</h2>
+
+      <div class="job">
+        <div class="job-head">
+          <div class="role">独立开发者 / Full-stack Engineer</div>
+          <div class="date">2024.04 - 至今</div>
+        </div>
+        <ul>
+          <li>独立负责多个软件产品的架构设计、开发、部署与线上维护，覆盖内容平台、跨境电商及 BIM 工程软件。</li>
+          <li><span class="project-label">图集内容平台：</span>使用 Next.js / React / Vue 等技术进行 Web 开发；结合 <b>Cloudflare Images / Workers</b> 与 <b>AWS EC2 / S3</b> 完成图片资源管理、边缘服务及云端部署。</li>
+          <li><span class="project-label">Headless Commerce：</span>基于 <b>Shopify API</b> 开发 Headless 跨境电商站点，负责支付流程集成、前后端业务衔接及 SEO 优化。</li>
+          <li><span class="project-label">Revit BIM 插件：</span>使用 <b>C# / Revit API</b> 开发墙模块拆分深化插件，将原人工拆分流程自动化，使单项目所需人力及处理时间降低约 <b>50%</b>。</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <div class="role">后端架构研发工程师</div>
+          <div class="date">2021.01 - 2024.03</div>
+        </div>
+        <div class="org">滴滴出行 · 地图事业部点架构组｜北京</div>
+        <ul>
+          <li>负责地图上下车点、推荐点、地点检索等核心后端服务的开发、维护与架构优化，主要使用 <b>Golang / C++</b>。</li>
+          <li>参与微服务稳定性与容灾体系建设，完善服务降级、流量切换、限流及应急预案，保障异常场景下核心链路稳定运行。</li>
+          <li>使用 Golang 重构违停信息服务及对外 API 服务，优化代码结构与资源消耗；在性能保持稳定的情况下，<b>单机房所需容器数量降低 50%</b>。</li>
+          <li>设计并实现独立的点标签微服务，将分散在多个服务中的标签逻辑统一抽离，降低服务耦合度并提升开发效率。</li>
+        </ul>
+      </div>
+
+      <div class="job small">
+        <div class="job-head">
+          <div class="role">大数据分析实习生｜中国平安壹钱包 · 大数据部门｜上海</div>
+          <div class="date">2018.08 - 2018.11</div>
+        </div>
+        <ul>
+          <li>阅读 Spark SQL 源代码并学习其工作原理；使用 Java 开发内部面试系统 API 调用功能。</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="two-col">
+      <section>
+        <h2>教育背景</h2>
+        <div class="edu">
+          <div class="edu-head">
+            <div class="role">卡耐基梅隆大学（Carnegie Mellon University）</div>
+            <div class="date">2019 - 2020</div>
+          </div>
+          <div>电子与计算机工程，硕士</div>
+        </div>
+        <div class="edu">
+          <div class="edu-head">
+            <div class="role">圣奥拉夫大学（St. Olaf College）</div>
+            <div class="date">2014 - 2018</div>
+          </div>
+          <div>数学 + 计算机科学，学士</div>
+        </div>
+      </section>
+
+      <section>
+        <h2>专业技能</h2>
+        <dl class="skills small">
+          <dt>语言</dt><dd>Golang, C/C++, Python, JavaScript/TypeScript, C#</dd>
+          <dt>Web</dt><dd>Next.js, React, Vue, Shopify API</dd>
+          <dt>云与平台</dt><dd>AWS EC2/S3, Cloudflare Workers/Images</dd>
+          <dt>工程能力</dt><dd>微服务、API、服务治理、性能优化、Linux/Unix</dd>
+          <dt>自然语言</dt><dd>中文母语，英语流利，日语初级</dd>
+        </dl>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    // 使用浏览器原生打印生成 PDF：文字保持矢量/可复制，中文字体与 A4 分页最稳定。
+    // GitHub Pages 静态部署无需任何后端或第三方 JS 库。
+  </script>
+</body>
+</html>
