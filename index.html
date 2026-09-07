@@ -10,44 +10,285 @@
   <link rel="alternate" hreflang="x-default" href="https://www.tenten.moe/" />
   <title>Pang Tianyu | Resume</title>
   <style>
-    :root { --ink:#171717; --muted:#666; --line:#d9d9d9; --paper:#fff; --page-bg:#eef1f4; }
-    * { box-sizing:border-box; }
-    html, body { margin:0; padding:0; }
-    body { background:var(--page-bg); color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans CJK SC","Source Han Sans SC","PingFang SC","Microsoft YaHei",Arial,sans-serif; font-size:10.3pt; line-height:1.46; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
-    .toolbar { width:210mm; max-width:calc(100% - 24px); margin:18px auto 10px; display:flex; justify-content:flex-end; align-items:center; gap:8px; flex-wrap:wrap; }
-    .toolbar button { appearance:none; border:1px solid #171717; border-radius:7px; background:#171717; color:#fff; padding:9px 14px; font:inherit; cursor:pointer; line-height:1; }
-    .toolbar button:hover { opacity:.86; }
-    .language-switch { display:inline-flex; border:1px solid #cfcfcf; border-radius:7px; overflow:hidden; background:#fff; }
-    .language-switch a { border:0; border-radius:0; background:#fff; color:#444; min-width:54px; padding:9px 12px; text-decoration:none; font:inherit; line-height:1; display:inline-flex; align-items:center; justify-content:center; }
-    .language-switch a + a { border-left:1px solid #ddd; }
-    .language-switch a.active { background:#171717; color:#fff; }
-    .page { width:210mm; min-height:297mm; margin:0 auto 24px; padding:12mm 14mm 11mm; background:var(--paper); box-shadow:0 8px 30px rgba(0,0,0,.08); }
-    header { display:grid; grid-template-columns:1fr auto; gap:14px; align-items:end; padding-bottom:5.5mm; border-bottom:1.4px solid var(--ink); }
-    h1 { margin:0; font-size:24pt; line-height:1.05; letter-spacing:-.25px; }
-    .headline { margin-top:2.2mm; color:#333; font-size:10.8pt; font-weight:600; }
-    .contact { text-align:right; font-size:9.4pt; color:var(--muted); white-space:nowrap; }
-    .contact a { color:inherit; text-decoration:none; }
-    section { margin-top:5.2mm; }
-    h2 { margin:0 0 2.2mm; font-size:11.6pt; line-height:1.2; letter-spacing:.04em; border-bottom:1px solid var(--line); padding-bottom:1.2mm; }
-    p { margin:0; }
-    .summary { color:#303030; }
-    .job,.edu { break-inside:avoid; page-break-inside:avoid; }
-    .job + .job,.edu + .edu { margin-top:3.5mm; }
-    .job-head,.edu-head { display:grid; grid-template-columns:1fr auto; gap:10px; align-items:baseline; }
-    .role { font-weight:700; font-size:10.8pt; }
-    .date { color:var(--muted); font-size:9.4pt; white-space:nowrap; }
-    .org { margin-top:.5mm; font-weight:600; color:#3d3d3d; }
-    ul { margin:1.3mm 0 0; padding-left:4.6mm; }
-    li { margin:.65mm 0; padding-left:.4mm; }
-    .project-label { font-weight:700; }
-    .two-col { display:grid; grid-template-columns:1.16fr .84fr; gap:8mm; align-items:start; }
-    .skills { display:grid; grid-template-columns:27mm 1fr; row-gap:1mm; column-gap:2mm; }
-    .skills dt { font-weight:700; }
-    .skills dd { margin:0; }
-    .small { font-size:9.5pt; }
-    @media screen and (max-width:820px) { body{background:#fff;} .toolbar{width:auto;margin:12px 16px 8px;justify-content:space-between;} .page{width:100%;min-height:auto;margin:0;padding:24px 20px 36px;box-shadow:none;} header,.job-head,.edu-head{grid-template-columns:1fr;gap:3px;} .contact{text-align:left;} .two-col{grid-template-columns:1fr;gap:0;} }
-    @page { size:A4; margin:0; }
-    @media print { html,body{width:210mm;background:#fff;} body{font-size:8.95pt;line-height:1.27;print-color-adjust:exact;-webkit-print-color-adjust:exact;} .toolbar{display:none!important;} .page{width:210mm;min-height:0;margin:0;padding:8.5mm 11mm 7.5mm;box-shadow:none;} header{gap:10px;padding-bottom:3.2mm;} h1{font-size:21.5pt;} .headline{margin-top:1.2mm;font-size:9.8pt;} .contact{font-size:8.7pt;} section{margin-top:2.9mm;} h2{margin-bottom:1.25mm;padding-bottom:.65mm;font-size:10.5pt;} .role{font-size:9.8pt;} .date{font-size:8.7pt;} .org{margin-top:.25mm;} .job + .job,.edu + .edu{margin-top:1.7mm;} ul{margin-top:.75mm;padding-left:4.2mm;} li{margin:.20mm 0;padding-left:.25mm;} .job-head,.edu-head{grid-template-columns:1fr auto;gap:10px;} .two-col{grid-template-columns:1.16fr .84fr;gap:6mm;} .skills{grid-template-columns:24mm 1fr;row-gap:.45mm;column-gap:1.5mm;} .small{font-size:8.65pt;} a{color:inherit;text-decoration:none;} }
+
+    :root {
+      --ink: #171717;
+      --muted: #666;
+      --line: #d9d9d9;
+      --paper: #fff;
+      --page-bg: #eef1f4;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    [hidden] { display: none !important; }
+
+    body {
+      background: var(--page-bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC",
+                   "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      font-size: 10.3pt;
+      line-height: 1.46;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    .toolbar {
+      width: 210mm;
+      max-width: calc(100% - 24px);
+      margin: 18px auto 10px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .toolbar button {
+      appearance: none;
+      border: 1px solid #171717;
+      border-radius: 7px;
+      background: #171717;
+      color: #fff;
+      padding: 9px 14px;
+      font: inherit;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .toolbar button:hover { opacity: .86; }
+    .pdf-link {
+      appearance: none;
+      border: 1px solid #171717;
+      border-radius: 7px;
+      background: #171717;
+      color: #fff;
+      padding: 9px 14px;
+      font: inherit;
+      line-height: 1;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .pdf-link:hover { opacity: .86; }
+
+    .language-switch {
+      display: inline-flex;
+      border: 1px solid #cfcfcf;
+      border-radius: 7px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .language-switch button,
+    .language-switch a {
+      border: 0;
+      border-radius: 0;
+      background: #fff;
+      color: #444;
+      min-width: 54px;
+      padding: 9px 12px;
+    }
+    .language-switch button + button,
+    .language-switch a + a { border-left: 1px solid #ddd; }
+    .language-switch button.active,
+    .language-switch a.active {
+      background: #171717;
+      color: #fff;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto 24px;
+      padding: 12mm 14mm 11mm;
+      background: var(--paper);
+      box-shadow: 0 8px 30px rgba(0,0,0,.08);
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 14px;
+      align-items: end;
+      padding-bottom: 5.5mm;
+      border-bottom: 1.4px solid var(--ink);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 24pt;
+      line-height: 1.05;
+      letter-spacing: -.25px;
+    }
+
+    .headline {
+      margin-top: 2.2mm;
+      color: #333;
+      font-size: 10.8pt;
+      font-weight: 600;
+    }
+
+    .contact {
+      text-align: right;
+      font-size: 9.4pt;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .contact a { color: inherit; text-decoration: none; }
+
+    section { margin-top: 5.2mm; }
+
+    h2 {
+      margin: 0 0 2.2mm;
+      font-size: 11.6pt;
+      line-height: 1.2;
+      letter-spacing: .04em;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 1.2mm;
+    }
+
+    p { margin: 0; }
+    .summary { color: #303030; }
+
+    .job, .edu { break-inside: avoid; page-break-inside: avoid; }
+    .job + .job, .edu + .edu { margin-top: 3.5mm; }
+
+    .job-head, .edu-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: baseline;
+    }
+
+    .role { font-weight: 700; font-size: 10.8pt; }
+    .date { color: var(--muted); font-size: 9.4pt; white-space: nowrap; }
+    .org { margin-top: .5mm; font-weight: 600; color: #3d3d3d; }
+
+    ul { margin: 1.3mm 0 0; padding-left: 4.6mm; }
+    li { margin: .65mm 0; padding-left: .4mm; }
+    .project-label { font-weight: 700; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.16fr .84fr;
+      gap: 8mm;
+      align-items: start;
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: 27mm 1fr;
+      row-gap: 1mm;
+      column-gap: 2mm;
+    }
+    .skills dt { font-weight: 700; }
+    .skills dd { margin: 0; }
+    .small { font-size: 9.5pt; }
+
+    @media screen and (max-width: 820px) {
+      body { background: #fff; }
+      .toolbar {
+        width: auto;
+        margin: 12px 16px 8px;
+        justify-content: space-between;
+      }
+      .page {
+        width: 100%;
+        min-height: auto;
+        margin: 0;
+        padding: 24px 20px 36px;
+        box-shadow: none;
+      }
+      header, .job-head, .edu-head { grid-template-columns: 1fr; gap: 3px; }
+      .contact { text-align: left; }
+      .two-col { grid-template-columns: 1fr; gap: 0; }
+    }
+
+    @page { size: A4; margin: 0; }
+
+    /* A4 PDF: keep each language version on exactly one page. */
+    @media print {
+      html, body {
+        width: 210mm;
+        background: #fff;
+      }
+
+      body {
+        font-size: 9.15pt;
+        line-height: 1.30;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      .toolbar { display: none !important; }
+
+      .page {
+        width: 210mm;
+        min-height: 0;
+        margin: 0;
+        padding: 8.5mm 11mm 7.5mm;
+        box-shadow: none;
+      }
+
+      header {
+        gap: 10px;
+        padding-bottom: 3.2mm;
+      }
+
+      h1 { font-size: 21.5pt; }
+      .headline { margin-top: 1.2mm; font-size: 9.8pt; }
+      .contact { font-size: 8.7pt; }
+
+      section { margin-top: 3.25mm; }
+      h2 {
+        margin-bottom: 1.25mm;
+        padding-bottom: .65mm;
+        font-size: 10.5pt;
+      }
+
+      .role { font-size: 9.8pt; }
+      .date { font-size: 8.7pt; }
+      .org { margin-top: .25mm; }
+      .job + .job, .edu + .edu { margin-top: 2.0mm; }
+
+      ul { margin-top: .75mm; padding-left: 4.2mm; }
+      li { margin: .28mm 0; padding-left: .25mm; }
+
+      .job-head, .edu-head { grid-template-columns: 1fr auto; gap: 10px; }
+      .two-col { grid-template-columns: 1.16fr .84fr; gap: 6mm; }
+      .skills {
+        grid-template-columns: 24mm 1fr;
+        row-gap: .45mm;
+        column-gap: 1.5mm;
+      }
+      .small { font-size: 8.85pt; }
+
+      /* English is naturally longer, so give it a small independent print adjustment. */
+      html[data-resume-lang="en"] body {
+        font-size: 8.95pt;
+        line-height: 1.27;
+      }
+      html[data-resume-lang="en"] section { margin-top: 2.9mm; }
+      html[data-resume-lang="en"] .job + .job,
+      html[data-resume-lang="en"] .edu + .edu { margin-top: 1.7mm; }
+      html[data-resume-lang="en"] li { margin: .20mm 0; }
+      html[data-resume-lang="en"] .small { font-size: 8.65pt; }
+
+      a { color: inherit; text-decoration: none; }
+    }
+  
+
+    .language-switch a {
+      text-decoration: none;
+      font: inherit;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
   </style>
 </head>
 <body>
@@ -56,39 +297,93 @@
       <a class="active" href="./" aria-current="page" aria-label="English resume">EN</a>
       <a href="./zh-hans/" aria-label="Simplified Chinese resume">简中</a>
     </div>
-    <button id="pdf-btn" type="button" onclick="exportPDF()">Print / Save PDF</button>
+    <a class="pdf-link" href="./Pang_Tianyu_Resume_EN.pdf" download>Download PDF</a>
   </div>
+
   <main class="page" data-lang-page="en">
-    <header><div><h1>Pang Tianyu</h1><div class="headline">Backend / Full-stack Engineer · Golang · Distributed Systems</div></div><div class="contact"><a href="mailto:lightning007zz@gmail.com">lightning007zz@gmail.com</a></div></header>
-    <section><h2>SUMMARY</h2><p class="summary">Backend / full-stack software engineer with 3+ years of experience developing core backend systems for DiDi Maps, plus independent product development experience. Primarily work with Golang/C++, with experience in microservice architecture, service governance, system refactoring, performance optimization, and cloud deployment. Reduced per-data-center container requirements by 50% through system refactoring.</p></section>
-    <section>
-      <h2>EXPERIENCE</h2>
-      <div class="job"><div class="job-head"><div class="role">Independent Developer / Full-stack Engineer</div><div class="date">Apr 2024 - Present</div></div><ul>
-        <li>Independently design, develop, deploy, and maintain software products across cross-border e-commerce, content platforms, web games, data analytics systems, and BIM engineering tools.</li>
-        <li><span class="project-label">Cross-border E-commerce:</span> Built Headless Shopify sites with <b>Next.js / React / Vue</b>, integrated commerce capabilities through the <b>Shopify API</b>, and worked on payment flows, page performance, and SEO.</li>
-        <li><span class="project-label">Image Content Platform:</span> Developed the website and cloud infrastructure using <b>Cloudflare Images / Workers</b> and <b>AWS EC2 / S3</b> for image asset management, edge services, application deployment, and object storage.</li>
-        <li><span class="project-label">Study Abroad Offer Analytics:</span> Built a <b>Python</b>-based offer statistics system for New Channel Study Abroad, automating the previous Excel-based manual workflow and reducing related <b>labor by about 80%</b>.</li>
-        <li><span class="project-label">Revit BIM Plugin:</span> Built a wall-module splitting and detailing plugin with <b>C# / Revit API</b>, automating a manual wall-splitting workflow and reducing per-project <b>manpower and processing time by about 50%</b>.</li>
-      </ul></div>
-      <div class="job"><div class="job-head"><div class="role">Backend Architecture Engineer</div><div class="date">Jan 2021 - Mar 2024</div></div><div class="org">DiDi · Maps, Point Architecture Team | Beijing, China</div><ul>
-        <li>Developed, maintained, and optimized architecture for core backend services covering pickup/drop-off points, recommended points, and place search, primarily using <b>Golang / C++</b>.</li>
-        <li>Contributed to microservice reliability and disaster-recovery improvements, including service degradation, traffic switching, rate limiting, and emergency procedures for core service availability.</li>
-        <li>Refactored parking-violation information and external API services in Golang, improving code structure and resource efficiency; reduced <b>container requirements per data center by 50%</b> while maintaining stable performance.</li>
-        <li>Designed and implemented an independent point-tag microservice, centralizing tag logic previously distributed across multiple services to reduce coupling and improve development efficiency.</li>
-      </ul></div>
-      <div class="job small"><div class="job-head"><div class="role">Big Data Analytics Intern | Ping An One Wallet · Big Data Department | Shanghai, China</div><div class="date">Aug 2018 - Nov 2018</div></div><ul><li>Read Spark SQL source code to understand its internals; used Java to implement API-calling functionality for an internal interview system.</li></ul></div>
-    </section>
-    <div class="two-col">
-      <section><h2>EDUCATION</h2><div class="edu"><div class="edu-head"><div class="role">Carnegie Mellon University</div><div class="date">2019 - 2020</div></div><div>M.S. in Electrical and Computer Engineering</div></div><div class="edu"><div class="edu-head"><div class="role">St. Olaf College</div><div class="date">2014 - 2018</div></div><div>B.A. in Mathematics and Computer Science</div></div></section>
-      <section><h2>SKILLS</h2><dl class="skills small"><dt>Languages</dt><dd>Golang, C/C++, Python, JavaScript/TypeScript, C#</dd><dt>Web</dt><dd>Next.js, React, Vue, Shopify API</dd><dt>Cloud</dt><dd>AWS EC2/S3, Cloudflare Workers/Images</dd><dt>Engineering</dt><dd>Microservices, APIs, service governance, performance optimization, Linux/Unix</dd><dt>Spoken</dt><dd>Mandarin (Native), English (Fluent), Japanese (Beginner)</dd></dl></section>
-    </div>
-  </main>
-  <script>
-    const isWeChat = /MicroMessenger/i.test(navigator.userAgent);
-    const pdfButton = document.getElementById('pdf-btn');
-    const pdfFile = './Pang_Tianyu_Resume_EN.pdf';
-    if (isWeChat && pdfButton) pdfButton.textContent = 'View PDF';
-    function exportPDF() { if (isWeChat) { window.location.href = pdfFile; return; } window.print(); }
-  </script>
+<header>
+<div>
+<h1>Pang Tianyu</h1>
+<div class="headline">Backend / Full-stack Engineer · Golang · Distributed Systems</div>
+</div>
+<div class="contact">
+<a href="mailto:lightning007zz@gmail.com">lightning007zz@gmail.com</a>
+</div>
+</header>
+<section>
+<h2>SUMMARY</h2>
+<p class="summary">
+        Backend / full-stack software engineer with 3+ years of experience developing core backend systems for DiDi Maps, plus independent product development experience. Primarily work with Golang/C++, with experience in microservice architecture, service governance, system refactoring, performance optimization, and cloud deployment. Reduced per-data-center container requirements by 50% through system refactoring.
+      </p>
+</section>
+<section>
+<h2>EXPERIENCE</h2>
+<div class="job">
+<div class="job-head">
+<div class="role">Independent Developer / Full-stack Engineer</div>
+<div class="date">Apr 2024 - Present</div>
+</div>
+<ul>
+<li>Independently design, develop, deploy, and maintain software products across cross-border e-commerce, content platforms, web games, data analytics systems, and BIM engineering tools.</li>
+<li><span class="project-label">Cross-border E-commerce:</span> Built Headless Shopify sites with <b>Next.js / React / Vue</b>, integrated commerce capabilities through the <b>Shopify API</b>, and worked on payment flows, page performance, and SEO.</li>
+<li><span class="project-label">Image Content Platform:</span> Developed the website and cloud infrastructure using <b>Cloudflare Images / Workers</b> and <b>AWS EC2 / S3</b> for image asset management, edge services, application deployment, and object storage.</li>
+<li><span class="project-label">Study Abroad Offer Analytics:</span> Built a <b>Python</b>-based offer statistics system for New Channel Study Abroad, automating the previous Excel-based manual workflow and reducing related <b>labor by about 80%</b>.</li>
+<li><span class="project-label">Revit BIM Plugin:</span> Built a wall-module splitting and detailing plugin with <b>C# / Revit API</b>, automating a manual wall-splitting workflow and reducing per-project <b>manpower and processing time by about 50%</b>.</li>
+</ul>
+</div>
+<div class="job">
+<div class="job-head">
+<div class="role">Backend Architecture Engineer</div>
+<div class="date">Jan 2021 - Mar 2024</div>
+</div>
+<div class="org">DiDi · Maps, Point Architecture Team | Beijing, China</div>
+<ul>
+<li>Developed, maintained, and optimized architecture for core backend services covering pickup/drop-off points, recommended points, and place search, primarily using <b>Golang / C++</b>.</li>
+<li>Contributed to microservice reliability and disaster-recovery improvements, including service degradation, traffic switching, rate limiting, and emergency procedures for core service availability.</li>
+<li>Refactored parking-violation information and external API services in Golang, improving code structure and resource efficiency; reduced <b>container requirements per data center by 50%</b> while maintaining stable performance.</li>
+<li>Designed and implemented an independent point-tag microservice, centralizing tag logic previously distributed across multiple services to reduce coupling and improve development efficiency.</li>
+</ul>
+</div>
+<div class="job small">
+<div class="job-head">
+<div class="role">Big Data Analytics Intern | Ping An One Wallet · Big Data Department | Shanghai, China</div>
+<div class="date">Aug 2018 - Nov 2018</div>
+</div>
+<ul>
+<li>Read Spark SQL source code to understand its internals; used Java to implement API-calling functionality for an internal interview system.</li>
+</ul>
+</div>
+</section>
+<div class="two-col">
+<section>
+<h2>EDUCATION</h2>
+<div class="edu">
+<div class="edu-head">
+<div class="role">Carnegie Mellon University</div>
+<div class="date">2019 - 2020</div>
+</div>
+<div>M.S. in Electrical and Computer Engineering</div>
+</div>
+<div class="edu">
+<div class="edu-head">
+<div class="role">St. Olaf College</div>
+<div class="date">2014 - 2018</div>
+</div>
+<div>B.A. in Mathematics and Computer Science</div>
+</div>
+</section>
+<section>
+<h2>SKILLS</h2>
+<dl class="skills small">
+<dt>Languages</dt><dd>Golang, C/C++, Python, JavaScript/TypeScript, C#</dd>
+<dt>Web</dt><dd>Next.js, React, Vue, Shopify API</dd>
+<dt>Cloud</dt><dd>AWS EC2/S3, Cloudflare Workers/Images</dd>
+<dt>Engineering</dt><dd>Microservices, APIs, service governance, performance optimization, Linux/Unix</dd>
+<dt>Spoken</dt><dd>Mandarin (Native), English (Fluent), Japanese (Beginner)</dd>
+</dl>
+</section>
+</div>
+</main>
+
 </body>
 </html>
