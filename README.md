@@ -1,29 +1,44 @@
-# GitHub Pages + Playwright PDF 自动生成
+# GitHub Pages 双语简历 + 自动生成 PDF
 
-仓库需要包含：
+## 路由
 
-- `index.html`
-- `scripts/generate-pdf.mjs`
-- `.github/workflows/pages.yml`
+- `https://www.tenten.moe/` - English（默认）
+- `https://www.tenten.moe/zh-hans/` - 简体中文
 
-工作流每次 push 到 `main` 时会：
+右上角 `EN / 简中` 可直接在两个静态路由之间切换，不使用 `?lang=` 查询参数。
 
-1. 安装 Noto CJK 中文字体和 Chromium。
-2. 用 Playwright 按 `index.html` 的 `@media print` 样式生成 `Pang_Tianyu_Resume.pdf`。
-3. 校验 PDF 必须恰好 1 页且为 A4，否则构建失败，不会发布排版错误的 PDF。
-4. 将 HTML + PDF 一起部署到 GitHub Pages。
+## 文件结构
 
-## GitHub 设置
+- `index.html` - English 默认页面
+- `zh-hans/index.html` - 简体中文页面
+- `scripts/generate-pdf.mjs` - Playwright 自动生成两份 PDF
+- `.github/workflows/pages.yml` - 生成、校验并部署 GitHub Pages
 
-在仓库 `Settings -> Pages` 中，将 **Build and deployment / Source** 改为 **GitHub Actions**。
+## PDF
 
-Custom domain 继续使用：
+每次 push 到 `main` 后自动生成：
 
-`www.tenten.moe`
+- `Pang_Tianyu_Resume_EN.pdf` - English
+- `Pang_Tianyu_Resume_ZH.pdf` - 简体中文
+- `Pang_Tianyu_Resume.pdf` - 默认语言兼容别名（English）
 
-现有 Name.com DNS 无需修改。
+两份正式 PDF 都会校验：
 
-## 微信行为
+1. 必须恰好 1 页
+2. 必须为 A4
+3. 任一版本不满足条件则部署失败
 
-- 微信内置浏览器：按钮显示 `查看 PDF`，直接打开构建好的 `Pang_Tianyu_Resume.pdf`。
-- Chrome / Safari / Edge：按钮保持 `生成 / 保存 PDF`，调用浏览器原生打印。
+## 微信内置浏览器
+
+微信中不依赖 `window.print()`：
+
+- `/` 点击 `View PDF` -> `Pang_Tianyu_Resume_EN.pdf`
+- `/zh-hans/` 点击 `查看 PDF` -> `Pang_Tianyu_Resume_ZH.pdf`
+
+Chrome / Safari / Edge 中继续使用浏览器原生打印。
+
+## GitHub Pages
+
+`Settings -> Pages -> Build and deployment -> Source -> GitHub Actions`
+
+Custom domain 继续使用 `www.tenten.moe`，Name.com DNS 无需修改。
