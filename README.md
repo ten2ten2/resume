@@ -20,22 +20,16 @@
 
 - `Pang_Tianyu_Resume_EN.pdf` - English
 - `Pang_Tianyu_Resume_ZH.pdf` - 简体中文
-- `Pang_Tianyu_Resume.pdf` - 默认语言兼容别名（English）
 
-两份正式 PDF 都会校验：
+不再生成默认语言兼容别名，也不再使用浏览器原生 `window.print()`。
+
+两个语言页面都直接下载对应的预生成 PDF，因此 Chrome、Safari、Edge、微信内置浏览器等使用相同的 PDF 文件和相同的排版结果。
+
+两份 PDF 都会校验：
 
 1. 必须恰好 1 页
 2. 必须为 A4
 3. 任一版本不满足条件则部署失败
-
-## 微信内置浏览器
-
-微信中不依赖 `window.print()`：
-
-- `/` 点击 `View PDF` -> `Pang_Tianyu_Resume_EN.pdf`
-- `/zh-hans/` 点击 `查看 PDF` -> `Pang_Tianyu_Resume_ZH.pdf`
-
-Chrome / Safari / Edge 中继续使用浏览器原生打印。
 
 ## GitHub Pages
 
