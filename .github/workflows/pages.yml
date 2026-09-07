@@ -1,4 +1,4 @@
-name: Build resume PDF and deploy Pages
+name: Build bilingual resume PDFs and deploy Pages
 
 on:
   push:
@@ -26,23 +26,26 @@ jobs:
         with:
           node-version: 22
 
-      - name: Install Chinese fonts
+      - name: Install fonts
         run: |
           sudo apt-get update
-          sudo apt-get install -y fonts-noto-cjk
+          sudo apt-get install -y fonts-noto-cjk fonts-liberation
 
       - name: Install PDF build dependencies
         run: |
           npm install --no-save playwright pdf-lib
           npx playwright install --with-deps chromium
 
-      - name: Generate and validate PDF
+      - name: Generate and validate English and Chinese PDFs
         run: node scripts/generate-pdf.mjs
 
       - name: Prepare static site
         run: |
-          mkdir -p _site
-          cp index.html Pang_Tianyu_Resume.pdf _site/
+          mkdir -p _site/zh-hans
+          cp index.html _site/
+          cp zh-hans/index.html _site/zh-hans/
+          cp Pang_Tianyu_Resume_EN.pdf Pang_Tianyu_Resume_ZH.pdf Pang_Tianyu_Resume.pdf _site/
+          if [ -f CNAME ]; then cp CNAME _site/; fi
           touch _site/.nojekyll
 
       - name: Configure Pages
