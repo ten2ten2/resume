@@ -44,7 +44,7 @@ jobs:
           mkdir -p _site/zh-hans
           cp index.html _site/
           cp zh-hans/index.html _site/zh-hans/
-          cp Pang_Tianyu_Resume_EN.pdf Pang_Tianyu_Resume_ZH.pdf Pang_Tianyu_Resume.pdf _site/
+          cp Pang_Tianyu_Resume_EN.pdf Pang_Tianyu_Resume_ZH.pdf _site/
           if [ -f CNAME ]; then cp CNAME _site/; fi
           touch _site/.nojekyll
 
