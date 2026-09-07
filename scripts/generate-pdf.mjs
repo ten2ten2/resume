@@ -88,14 +88,9 @@ try {
       await page.close();
     }
   }
-
-  await fs.copyFile(
-    path.join(root, 'Pang_Tianyu_Resume_EN.pdf'),
-    path.join(root, 'Pang_Tianyu_Resume.pdf')
-  );
 } finally {
   await browser.close();
   await new Promise((resolve) => server.close(resolve));
 }
 
-console.log('Generated English (default) and Simplified Chinese resume PDFs successfully.');
+console.log('Generated English and Simplified Chinese resume PDFs successfully.');
