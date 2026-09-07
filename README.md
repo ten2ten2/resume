@@ -5,14 +5,7 @@
 - `https://www.tenten.moe/` - English（默认）
 - `https://www.tenten.moe/zh-hans/` - 简体中文
 
-右上角 `EN / 简中` 可直接在两个静态路由之间切换，不使用 `?lang=` 查询参数。
-
-## 文件结构
-
-- `index.html` - English 默认页面
-- `zh-hans/index.html` - 简体中文页面
-- `scripts/generate-pdf.mjs` - Playwright 自动生成两份 PDF
-- `.github/workflows/pages.yml` - 生成、校验并部署 GitHub Pages
+右上角 `English / 简体中文` 直接在两个静态路由之间切换。
 
 ## PDF
 
@@ -21,18 +14,23 @@
 - `Pang_Tianyu_Resume_EN.pdf` - English
 - `Pang_Tianyu_Resume_ZH.pdf` - 简体中文
 
-不再生成默认语言兼容别名，也不再使用浏览器原生 `window.print()`。
+网页按钮直接打开/下载对应的预生成 PDF，不使用浏览器原生打印。
 
-两个语言页面都直接下载对应的预生成 PDF，因此 Chrome、Safari、Edge、微信内置浏览器等使用相同的 PDF 文件和相同的排版结果。
-
-两份 PDF 都会校验：
+两份 PDF 都由工作流校验：
 
 1. 必须恰好 1 页
 2. 必须为 A4
 3. 任一版本不满足条件则部署失败
 
+## 字体与排版
+
+- English 网页：优先 Inter / SF Pro / Segoe UI 等现代无衬线字体。
+- 简体中文网页：优先 PingFang SC / Noto Sans CJK SC / Microsoft YaHei。
+- PDF：GitHub Actions 安装 Inter、Noto Sans 和 Noto Sans CJK，保证生成环境字体稳定。
+- PDF 保持一页 A4，但使用更舒展的字号、行距、段落和项目间距，避免早期版本过度紧凑。
+
 ## GitHub Pages
 
 `Settings -> Pages -> Build and deployment -> Source -> GitHub Actions`
 
-Custom domain 继续使用 `www.tenten.moe`，Name.com DNS 无需修改。
+Custom domain：`www.tenten.moe`。

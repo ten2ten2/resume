@@ -26,10 +26,11 @@ jobs:
         with:
           node-version: 22
 
-      - name: Install fonts
+      - name: Install resume fonts
         run: |
           sudo apt-get update
-          sudo apt-get install -y fonts-noto-cjk fonts-liberation
+          sudo apt-get install -y fonts-inter fonts-noto-core fonts-noto-cjk fonts-liberation
+          fc-cache -f
 
       - name: Install PDF build dependencies
         run: |

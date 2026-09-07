@@ -23,11 +23,21 @@
     html, body { margin: 0; padding: 0; }
     [hidden] { display: none !important; }
 
+    /* Typography: system-first on the web; deterministic Inter/Noto stacks for PDF. */
+    html[data-resume-lang="en"] body {
+      font-family: "Inter", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      letter-spacing: -0.006em;
+    }
+    html[data-resume-lang="zh"] body {
+      font-family: "PingFang SC", "Noto Sans CJK SC", "Source Han Sans SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+      letter-spacing: 0;
+    }
+    .date { font-variant-numeric: tabular-nums; }
+
     body {
       background: var(--page-bg);
       color: var(--ink);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC",
-                   "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       font-size: 10.3pt;
       line-height: 1.46;
       -webkit-font-smoothing: antialiased;
@@ -87,8 +97,8 @@
       border-radius: 0;
       background: #fff;
       color: #444;
-      min-width: 54px;
-      padding: 9px 12px;
+      min-width: 82px;
+      padding: 9px 14px;
     }
     .language-switch button + button,
     .language-switch a + a { border-left: 1px solid #ddd; }
@@ -208,7 +218,7 @@
 
     @page { size: A4; margin: 0; }
 
-    /* A4 PDF: keep each language version on exactly one page. */
+    /* A4 PDF: relaxed, readable typography while remaining exactly one page. */
     @media print {
       html, body {
         width: 210mm;
@@ -216,10 +226,23 @@
       }
 
       body {
-        font-size: 9.15pt;
-        line-height: 1.30;
+        font-size: 9.8pt;
+        line-height: 1.36;
         print-color-adjust: exact;
         -webkit-print-color-adjust: exact;
+      }
+
+      /* PDF font stacks are deterministic on the GitHub Actions runner. */
+      html[data-resume-lang="en"] body {
+        font-family: "Inter", "Noto Sans", "Liberation Sans", Arial, sans-serif;
+        font-size: 9.55pt;
+        line-height: 1.34;
+        letter-spacing: -0.004em;
+      }
+      html[data-resume-lang="zh"] body {
+        font-family: "Noto Sans CJK SC", "Source Han Sans SC", "Microsoft YaHei", sans-serif;
+        font-size: 9.8pt;
+        line-height: 1.38;
       }
 
       .toolbar { display: none !important; }
@@ -228,57 +251,53 @@
         width: 210mm;
         min-height: 0;
         margin: 0;
-        padding: 8.5mm 11mm 7.5mm;
+        padding: 10mm 12.5mm 9mm;
         box-shadow: none;
       }
 
       header {
-        gap: 10px;
-        padding-bottom: 3.2mm;
+        gap: 12px;
+        padding-bottom: 4mm;
       }
 
-      h1 { font-size: 21.5pt; }
-      .headline { margin-top: 1.2mm; font-size: 9.8pt; }
-      .contact { font-size: 8.7pt; }
+      h1 { font-size: 22.5pt; }
+      .headline { margin-top: 1.5mm; font-size: 10.2pt; }
+      .contact { font-size: 9pt; }
 
-      section { margin-top: 3.25mm; }
+      section { margin-top: 3.9mm; }
       h2 {
-        margin-bottom: 1.25mm;
-        padding-bottom: .65mm;
-        font-size: 10.5pt;
+        margin-bottom: 1.55mm;
+        padding-bottom: .8mm;
+        font-size: 10.9pt;
       }
 
-      .role { font-size: 9.8pt; }
-      .date { font-size: 8.7pt; }
-      .org { margin-top: .25mm; }
-      .job + .job, .edu + .edu { margin-top: 2.0mm; }
+      .role { font-size: 10.15pt; }
+      .date { font-size: 8.95pt; }
+      .org { margin-top: .35mm; }
+      .job + .job, .edu + .edu { margin-top: 2.35mm; }
 
-      ul { margin-top: .75mm; padding-left: 4.2mm; }
-      li { margin: .28mm 0; padding-left: .25mm; }
+      ul { margin-top: .95mm; padding-left: 4.4mm; }
+      li { margin: .42mm 0; padding-left: .3mm; }
 
       .job-head, .edu-head { grid-template-columns: 1fr auto; gap: 10px; }
-      .two-col { grid-template-columns: 1.16fr .84fr; gap: 6mm; }
+      .two-col { grid-template-columns: 1.16fr .84fr; gap: 6.5mm; }
       .skills {
-        grid-template-columns: 24mm 1fr;
-        row-gap: .45mm;
-        column-gap: 1.5mm;
+        grid-template-columns: 25mm 1fr;
+        row-gap: .7mm;
+        column-gap: 1.7mm;
       }
-      .small { font-size: 8.85pt; }
+      .small { font-size: 9.15pt; }
 
-      /* English is naturally longer, so give it a small independent print adjustment. */
-      html[data-resume-lang="en"] body {
-        font-size: 8.95pt;
-        line-height: 1.27;
-      }
-      html[data-resume-lang="en"] section { margin-top: 2.9mm; }
+      /* English prose is longer, so spacing is only slightly tighter than Chinese. */
+      html[data-resume-lang="en"] section { margin-top: 3.55mm; }
       html[data-resume-lang="en"] .job + .job,
-      html[data-resume-lang="en"] .edu + .edu { margin-top: 1.7mm; }
-      html[data-resume-lang="en"] li { margin: .20mm 0; }
-      html[data-resume-lang="en"] .small { font-size: 8.65pt; }
+      html[data-resume-lang="en"] .edu + .edu { margin-top: 2.05mm; }
+      html[data-resume-lang="en"] li { margin: .34mm 0; }
+      html[data-resume-lang="en"] .small { font-size: 8.95pt; }
 
       a { color: inherit; text-decoration: none; }
     }
-  
+
 
     .language-switch a {
       text-decoration: none;
@@ -294,8 +313,8 @@
 <body>
   <div class="toolbar">
     <div class="language-switch" role="group" aria-label="Language">
-      <a href="../" aria-label="English resume">EN</a>
-      <a class="active" href="./" aria-current="page" aria-label="简体中文简历">简中</a>
+      <a href="../" aria-label="English resume">English</a>
+      <a class="active" href="./" aria-current="page" aria-label="简体中文简历">简体中文</a>
     </div>
     <a class="pdf-link" href="../Pang_Tianyu_Resume_ZH.pdf" download>下载 PDF</a>
   </div>
