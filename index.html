@@ -188,6 +188,7 @@
     }
 
     .skills {
+      margin: 0;
       display: grid;
       grid-template-columns: 27mm 1fr;
       row-gap: 1mm;
@@ -280,7 +281,7 @@
       li { margin: .42mm 0; padding-left: .3mm; }
 
       .job-head, .edu-head { grid-template-columns: 1fr auto; gap: 10px; }
-      .two-col { grid-template-columns: 1.16fr .84fr; gap: 6.5mm; }
+      .two-col { grid-template-columns: .8fr 1.2fr; gap: 6.5mm; }
       .skills {
         grid-template-columns: 25mm 1fr;
         row-gap: .7mm;
@@ -332,7 +333,7 @@
 <section>
 <h2>SUMMARY</h2>
 <p class="summary">
-        Backend / full-stack software engineer with 3+ years of experience developing core backend systems for DiDi Maps, plus independent product development experience. Primarily work with Golang/C++, with experience in microservice architecture, service governance, system refactoring, performance optimization, and cloud deployment. Reduced per-data-center container requirements by 50% through system refactoring.
+        Backend / full-stack software engineer with 3+ years of experience developing core backend systems for DiDi Maps, plus independent product development experience. Primarily work with Golang/C++, with experience in microservice architecture, service governance, system refactoring, performance optimization, cloud deployment, and real-time AI voice applications. Reduced per-data-center container requirements by 50% through system refactoring.
       </p>
 </section>
 <section>
@@ -343,7 +344,13 @@
 <div class="date">Apr 2024 - Present</div>
 </div>
 <ul>
-<li>Independently design, develop, deploy, and maintain software products across cross-border e-commerce, content platforms, web games, data analytics systems, and BIM engineering tools.</li>
+<li>Independently design, develop, deploy, and maintain software products across AI voice companionship, cross-border e-commerce, content platforms, web games, data analytics systems, and BIM engineering tools.</li>
+<li><span class="project-label">Chatbot | AI Voice Companion Platform (In Development)</span>
+<ul>
+<li><b>Architecture and Product Development:</b> Built a <b>Go backend</b> and extended an open-source Python voice service into a real-time <b>ASR → LLM → TTS pipeline</b> over HTTPS/WSS; implemented device authentication, role/model configuration, and separate customer and admin interfaces with <b>React / TypeScript</b>.</li>
+<li><b>Real-time Interaction and Role Memory:</b> Implemented asynchronous LLM streaming, turn cancellation, error cleanup, and stale-output isolation after interruptions; persisted conversations and isolated long-term memory by <b>user and role</b>, supporting both native tool calls and structured extraction.</li>
+</ul>
+</li>
 <li><span class="project-label">Cross-border E-commerce:</span> Built Headless Shopify sites with <b>Next.js / React / Vue</b>, integrated commerce capabilities through the <b>Shopify API</b>, and worked on payment flows, page performance, and SEO.</li>
 <li><span class="project-label">Image Content Platform:</span> Developed the website and cloud infrastructure using <b>Cloudflare Images / Workers</b> and <b>AWS EC2 / S3</b> for image asset management, edge services, application deployment, and object storage.</li>
 <li><span class="project-label">Study Abroad Offer Analytics:</span> Built a <b>Python</b>-based offer statistics system for New Channel Study Abroad, automating the previous Excel-based manual workflow and reducing related <b>labor by about 80%</b>.</li>
@@ -397,6 +404,8 @@
 <dt>Languages</dt><dd>Golang, C/C++, Python, JavaScript/TypeScript, C#</dd>
 <dt>Web</dt><dd>Next.js, React, Vue, Shopify API</dd>
 <dt>Cloud</dt><dd>AWS EC2/S3, Cloudflare Workers/Images</dd>
+<dt>Data</dt><dd>PostgreSQL, Redis, transactional consistency, idempotency</dd>
+<dt>AI Applications</dt><dd>ASR / LLM / TTS integration, async streaming, tool calling, role memory</dd>
 <dt>Engineering</dt><dd>Microservices, APIs, service governance, performance optimization, Linux/Unix</dd>
 <dt>Spoken</dt><dd>Mandarin (Native), English (Fluent), Japanese (Beginner)</dd>
 </dl>
