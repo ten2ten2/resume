@@ -237,7 +237,7 @@
       html[data-resume-lang="en"] body {
         font-family: "Inter", "Noto Sans", "Liberation Sans", Arial, sans-serif;
         font-size: 9.55pt;
-        line-height: 1.34;
+        line-height: 1.31;
         letter-spacing: -0.004em;
       }
       html[data-resume-lang="zh"] body {
@@ -290,7 +290,13 @@
       .small { font-size: 9.15pt; }
 
       /* English prose is longer, so spacing is only slightly tighter than Chinese. */
-      html[data-resume-lang="en"] section { margin-top: 3.55mm; }
+      html[data-resume-lang="en"] .page { padding-left: 11mm; padding-right: 11mm; }
+      html[data-resume-lang="en"] header { padding-bottom: 3mm; }
+      html[data-resume-lang="en"] section { margin-top: 3mm; }
+      html[data-resume-lang="en"] .skills {
+        grid-template-columns: 22mm 1fr;
+        row-gap: .6mm;
+      }
       html[data-resume-lang="en"] .job + .job,
       html[data-resume-lang="en"] .edu + .edu { margin-top: 2.05mm; }
       html[data-resume-lang="en"] li { margin: .34mm 0; }
@@ -333,7 +339,7 @@
 <section>
 <h2>SUMMARY</h2>
 <p class="summary">
-        Backend / full-stack software engineer with 3+ years of experience developing core backend systems for DiDi Maps, plus independent product development experience. Primarily work with Golang/C++, with experience in microservice architecture, service governance, system refactoring, performance optimization, cloud deployment, and real-time AI voice applications. Reduced per-data-center container requirements by 50% through system refactoring.
+        Backend / full-stack engineer with <b>5+ years in software development</b>, including <b>3+ years on core backend systems at DiDi Maps</b>. Primarily use Go / C++, with experience in microservices, service governance, refactoring, performance optimization, cloud deployment, and real-time AI voice applications. Reduced <b>per-data-center container requirements by 50%</b> while maintaining performance. Independently handle requirements, module design, development, deployment, and maintenance.
       </p>
 </section>
 <section>
@@ -352,7 +358,7 @@
 </ul>
 </li>
 <li><span class="project-label">Cross-border E-commerce:</span> Built Headless Shopify sites with <b>Next.js / React / Vue</b>, integrated commerce capabilities through the <b>Shopify API</b>, and worked on payment flows, page performance, and SEO.</li>
-<li><span class="project-label">Image Content Platform:</span> Developed the website and cloud infrastructure using <b>Cloudflare Images / Workers</b> and <b>AWS EC2 / S3</b> for image asset management, edge services, application deployment, and object storage.</li>
+<li><span class="project-label">Image Content Platform:</span> Developed the website and cloud infrastructure with <b>Amazon Aurora (PostgreSQL)</b> for business data, <b>Cloudflare Images / Workers</b> and <b>AWS EC2 / S3</b> for image management, edge services, application deployment, and object storage; implemented <b>hotlink protection for large images</b>, <b>Docker</b> containerization, and automated builds and deployments with <b>GitHub Actions</b>.</li>
 <li><span class="project-label">Study Abroad Offer Analytics:</span> Built a <b>Python</b>-based offer statistics system for New Channel Study Abroad, automating the previous Excel-based manual workflow and reducing related <b>labor by about 80%</b>.</li>
 <li><span class="project-label">Revit BIM Plugin:</span> Built a wall-module splitting and detailing plugin with <b>C# / Revit API</b>, automating a manual wall-splitting workflow and reducing per-project <b>manpower and processing time by about 50%</b>.</li>
 </ul>
@@ -366,8 +372,8 @@
 <ul>
 <li>Developed, maintained, and optimized architecture for core backend services covering pickup/drop-off points, recommended points, and place search, primarily using <b>Golang / C++</b>.</li>
 <li>Contributed to microservice reliability and disaster-recovery improvements, including service degradation, traffic switching, rate limiting, and emergency procedures for core service availability.</li>
-<li>Refactored parking-violation information and external API services in Golang, improving code structure and resource efficiency; reduced <b>container requirements per data center by 50%</b> while maintaining stable performance.</li>
-<li>Designed and implemented an independent point-tag microservice, centralizing tag logic previously distributed across multiple services to reduce coupling and improve development efficiency.</li>
+<li>Refactored parking-violation information and external API services with <b>Go / Gin</b>, using <b>Redis</b> caching, <b>SQL</b> data access, and <b>goroutines</b> for concurrent processing. Improved code structure and resource efficiency, reducing <b>container requirements per data center by 50%</b> while maintaining performance.</li>
+<li>Designed and built an independent point-tag microservice to centralize tag logic previously spread across services, reducing coupling and improving development efficiency; used <b>pprof</b> to analyze function call stacks and performance overhead during request processing.</li>
 </ul>
 </div>
 <div class="job small">
@@ -401,10 +407,10 @@
 <section>
 <h2>SKILLS</h2>
 <dl class="skills small">
-<dt>Languages</dt><dd>Golang, C/C++, Python, JavaScript/TypeScript, C#</dd>
-<dt>Web</dt><dd>Next.js, React, Vue, Shopify API</dd>
-<dt>Cloud</dt><dd>AWS EC2/S3, Cloudflare Workers/Images</dd>
-<dt>Engineering</dt><dd>Microservices, APIs, service governance, performance optimization, Linux/Unix</dd>
+<dt>Languages</dt><dd>Golang, C/C++, Python, JavaScript/TypeScript, C#, Java</dd>
+<dt>Web</dt><dd>Gin, RESTful API, Next.js, React, Vue, Shopify API</dd>
+<dt>Cloud</dt><dd>AWS EC2/S3, Aurora (PostgreSQL), Cloudflare Workers/Images, Docker, GitHub Actions CI/CD</dd>
+<dt>Engineering</dt><dd>Microservices, API design, goroutines, Redis/SQL, service governance, pprof profiling, performance optimization, Linux/Unix</dd>
 <dt>Spoken</dt><dd>Mandarin (Native), English (Fluent), Japanese (Beginner)</dd>
 </dl>
 </section>
