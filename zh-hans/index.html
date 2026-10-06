@@ -350,12 +350,7 @@
 <div class="date">2024.04 - 至今</div>
 </div>
 <ul>
-<li><span class="project-label">Chatbot｜AI 语音陪伴平台（开发中）</span>
-<ul>
-<li><b>架构与业务开发：</b>自研 <b>Go 业务后端</b>，基于开源 Python 语音服务构建 <b>ASR → LLM → TTS 实时对话链路</b>，通过 HTTPS/WSS 对接设备；实现设备鉴权、角色及模型配置，并开发 <b>React / TypeScript</b> 用户端与独立运营后台。</li>
-<li><b>实时交互与角色记忆：</b>实现流式 LLM 异步调用、回合取消与异常清理，处理打断后的旧回合输出隔离；持久化对话记录，按<b>用户＋角色</b>隔离长期记忆，兼容原生工具调用与结构化提取两种记忆策略。</li>
-</ul>
-</li>
+<li><span class="project-label">Chatbot｜AI 语音陪伴 Agent（开发中）：</span>自研 <b>Go 业务后端</b>，基于 Python 语音服务构建 <b>ASR → LLM → TTS</b> 实时交互链路；实现流式 LLM、回合取消与异常清理，并构建<b>受控工具调用与长期记忆机制</b>，支持记忆检索、保存及删除，按模型能力适配 <b>Function Calling 与结构化计划</b>，按账号＋角色隔离记忆。</li>
 <li><span class="project-label">跨境电商：</span>使用 <b>Next.js / React / Vue</b> 开发 Headless Shopify 站点，通过 <b>Shopify API</b> 集成电商业务能力，并负责支付流程、页面性能及 SEO 优化。</li>
 <li><span class="project-label">图集内容平台：</span>负责网站开发及云端基础设施搭建，使用 <b>Amazon Aurora（PostgreSQL）</b> 存储与管理业务数据；使用 <b>Cloudflare Images / Workers</b> 与 <b>AWS EC2 / S3</b> 完成图片资源管理、边缘服务、应用部署及对象存储，并实现大图防盗链；使用 <b>Docker</b> 进行容器化部署，通过 <b>GitHub Actions</b> 实现自动化构建与部署。</li>
 <li><span class="project-label">留学 Offer 数据统计系统：</span>使用 <b>Python</b> 为新航道留学开发 Offer 数据统计系统，将原有基于 Excel 的人工统计流程自动化，使相关<b>人力投入降低约 80%</b>。</li>
